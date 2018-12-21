@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import { withTheme, withStyles, createStyles } from "@material-ui/styles";
+import DeepChild from "./deepchild";
 
 const useStyles = createStyles(theme => ({
-  button: {
+  test: {
     background: theme.background,
     border: 10,
     borderRadius: 3,
@@ -21,7 +22,12 @@ class TopChildRaw extends React.Component {
   }
   render() {
     const { classes } = this.props;
-    return <DeepChild/>;
+    return (
+      <div>
+        <DeepChild />
+        <DeepChild />
+      </div>
+    );
   }
 }
 
@@ -30,6 +36,6 @@ TopChildRaw.propTypes = {
   theme: PropTypes.object.isRequired
 };
 
-const DeepChild = withStyles(useStyles, withTheme())(TopChildRaw);
+const TopChild = withStyles(useStyles, withTheme())(TopChildRaw);
 
-export default DeepChild;
+export default TopChild;
